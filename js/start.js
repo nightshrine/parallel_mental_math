@@ -1,7 +1,7 @@
 let main = document.querySelector(".main");
 
-if(localStorage.getItem("level")) {
-    let level = Number(localStorage.getItem("level"));
+if(localStorage.getItem(app_name + "level")) {
+    let level = Number(localStorage.getItem(app_name + "level"));
     if (level != 1){
         let startButtonRestart = document.createElement("button");
         startButtonRestart.className = "start-button restart";
@@ -12,18 +12,18 @@ if(localStorage.getItem("level")) {
         })
     }
 }else {
-    localStorage.setItem("level", 1);
+    localStorage.setItem(app_name + "level", 1);
 }
 
 let startButton = document.querySelector(".start-button");
 startButton.addEventListener("click", () => {
-    localStorage.setItem("level", 1);
+    localStorage.setItem(app_name + "level", 1);
     window.location.href = 'game.html';
 });
 
-if(localStorage.getItem("hiscore")) {
+if(localStorage.getItem(app_name + "hiscore")) {
     let hiscore = document.createElement("p");
     hiscore.className = "hiscore";
-    hiscore.innerHTML = "HI-SCORE: " + localStorage.getItem("hiscore");
+    hiscore.innerHTML = "HI-SCORE: " + localStorage.getItem(app_name + "hiscore");
     main.appendChild(hiscore);
 }

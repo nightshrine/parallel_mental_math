@@ -1,3 +1,5 @@
+const app_name = "parallel_mental_math";
+
 clearSound = document.querySelector("#clearSound");
 tickSound = document.querySelector("#tickSound");
 gameoverSound = document.querySelector("#gameoverSound");
@@ -148,13 +150,13 @@ const startGame = () => {
             clearDisplay.style.display = "block";
             clearSound.play();
             setInterval(() => {
-                localStorage.setItem("level", level+1);
+                localStorage.setItem(app_name + "level", level+1);
                 let hiscore = 1;
-                if(localStorage.getItem("hiscore")) {
-                    hiscore = localStorage.getItem("hiscore");
+                if(localStorage.getItem(app_name + "hiscore")) {
+                    hiscore = localStorage.getItem(app_name + "hiscore");
                 }
                 hiscore = Math.max(hiscore, level+1);
-                localStorage.setItem("hiscore", hiscore);
+                localStorage.setItem(app_name + "hiscore", hiscore);
                 window.location.reload();
             }, 3000)
         } else {
@@ -173,7 +175,7 @@ let gameDisplay = document.querySelector(".game-display");
 let mathDisplays = document.querySelector(".math-displays");
     
     // レベル
-let level = Number(localStorage.getItem("level"));
+let level = Number(localStorage.getItem(app_name + "level"));
 
 //何個同時の問題か
 let layer_num = Math.trunc(Math.sqrt(level));
