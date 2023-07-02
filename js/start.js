@@ -1,3 +1,4 @@
+const app_name = "parallel_mental_math";
 let main = document.querySelector(".main");
 
 if(localStorage.getItem(app_name + "level")) {
